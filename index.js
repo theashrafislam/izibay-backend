@@ -31,7 +31,7 @@ async function run() {
         usersCollection = database.collection("users");
 
 
-        app.get('/api/users', async (req, res) => {
+        app.get('/users', async (req, res) => {
             try {
                 const users = await usersCollection.find().toArray();
                 console.log(users);
