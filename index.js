@@ -49,24 +49,24 @@ async function run() {
             }
         })
 
-        app.post("/api/users", async (req, res) => {
-            try {
-                const user = req.body;
-                const result = await usersCollection.insertOne(user);
+        // app.post("/api/users", async (req, res) => {
+        //     try {
+        //         const user = req.body;
+        //         const result = await usersCollection.insertOne(user);
 
-                res.json({
-                    success: true,
-                    message: "User added",
-                    insertedId: result.insertedId
-                });
-            } catch (error) {
-                res.status(500).json({
-                    success: false,
-                    message: "Failed to add user",
-                    error: error.message
-                });
-            }
-        });
+        //         res.json({
+        //             success: true,
+        //             message: "User added",
+        //             insertedId: result.insertedId
+        //         });
+        //     } catch (error) {
+        //         res.status(500).json({
+        //             success: false,
+        //             message: "Failed to add user",
+        //             error: error.message
+        //         });
+        //     }
+        // });
 
 
 
