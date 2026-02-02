@@ -41,7 +41,7 @@ async function run() {
         app.get('/users', async (req, res) => {
             try {
                 const users = await usersCollection.find().toArray();
-                // console.log(users);
+                
                 res.json({
                     success: true,
                     count: users.length,
