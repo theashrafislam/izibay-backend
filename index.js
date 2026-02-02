@@ -5,10 +5,14 @@ const port = process.env.PORT || 5000;
 
 app.use(express.json());
 
+console.log(process.env.DATABASE_USERNAME);
+console.log(process.env.DATABASE_PASSWORD);
+
 
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = `mongodb+srv://${process.env.DATABASE_USERNAME}:${process.env.DATABASE_PASSWORD}@cluster0.gphdl2n.mongodb.net/?appName=Cluster0`;
+// const uri = `mongodb+srv://${process.env.DATABASE_USERNAME}:${process.env.DATABASE_PASSWORD}@cluster0.gphdl2n.mongodb.net/?appName=Cluster0`;
+const uri = `mongodb+srv://${process.env.DATABASE_USERNAME}:${process.env.DATABASE_PASSWORD}@cluster0.tmlccmb.mongodb.net/?appName=Cluster0`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
