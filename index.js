@@ -5,13 +5,13 @@ const port = process.env.PORT || 5000;
 
 app.use(express.json());
 
-console.log(process.env.DATABASE_USERNAME);
-console.log(process.env.DATABASE_PASSWORD);
+
+
+
 
 
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-// const uri = `mongodb+srv://${process.env.DATABASE_USERNAME}:${process.env.DATABASE_PASSWORD}@cluster0.gphdl2n.mongodb.net/?appName=Cluster0`;
 const uri = `mongodb+srv://${process.env.DATABASE_USERNAME}:${process.env.DATABASE_PASSWORD}@cluster0.tmlccmb.mongodb.net/?appName=Cluster0`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -23,16 +23,19 @@ const client = new MongoClient(uri, {
     }
 });
 
-
-
 async function run() {
     let usersCollection
     try {
         // Connect the client to the server	(optional starting in v4.7)
         await client.connect();
 
+
+
         const database = client.db("izibay-database");
         usersCollection = database.collection("users");
+
+
+
 
 
         app.get('/users', async (req, res) => {
@@ -53,25 +56,6 @@ async function run() {
             }
         })
 
-        // app.post("/api/users", async (req, res) => {
-        //     try {
-        //         const user = req.body;
-        //         const result = await usersCollection.insertOne(user);
-
-        //         res.json({
-        //             success: true,
-        //             message: "User added",
-        //             insertedId: result.insertedId
-        //         });
-        //     } catch (error) {
-        //         res.status(500).json({
-        //             success: false,
-        //             message: "Failed to add user",
-        //             error: error.message
-        //         });
-        //     }
-        // });
-
 
 
 
@@ -85,6 +69,7 @@ async function run() {
     }
 }
 run().catch(console.dir);
+
 
 
 // ROOT API
