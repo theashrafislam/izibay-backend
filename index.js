@@ -135,6 +135,16 @@ app.get("/", (req, res) => {
     });
 });
 
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
+// app.listen(port, () => {
+//     console.log(`Example app listening on port ${port}`)
+// })
+
+// ✅ Export app for Vercel
+module.exports = app;
+
+// ⚠️ Local development server
+if (process.env.NODE_ENV !== "production") {
+    app.listen(port, () => {
+        console.log(`Server running locally on http://localhost:${port}`);
+    });
+}
